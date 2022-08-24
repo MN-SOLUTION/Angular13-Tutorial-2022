@@ -1,30 +1,38 @@
- <h3 [innerText]="Title"></h3>
- 
 
-  <table class="table table-dark">
-   
-   <thead>
+
+<div class="container">
+ <app-employee-filter 
+ [all]="getAllEmployeeCount()"
+ [male]="getMaleEmployeeCount()"
+ [female]="getFemaleEmployeeCount()"
+ ></app-employee-filter>
+</div>
+
+<table class="table table-stripped">
+
+ <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Date of Birth</th>
-        <th>Department</th>
-        <th>Image</th>
+        <th> Id</th>
+        <th> Name</th>
+        <th> Salary</th>
+        <th> Gender</th>
+
     </tr>
-   </thead>
-    <tbody>
-        <tr>
-            <td>{{Id}}</td>
-            <td>{{Name}}</td>
-            <td>{{DateOfBirth}}</td>
-            <td>{{Department}}</td>
-            <td>
-                <img class="" [src]='Image'/>
-            </td>
-        </tr>
-    </tbody>
-
-  </table>
+ </thead>
+ <tbody>
+    <tr *ngFor="let employee of employees" >
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.salary}}</td>
+      <td>{{employee.gender}}</td>
 
 
-  <button [disabled]="IsButtonDisabled" (click)="buttonSubmit()" class="btn btn-success"> Click </button>
+    </tr>
+    <tr *ngIf="employees.length===0">
+    <td colspan="4">
+   <p>No Records Found!</p>
+    </td>
+    </tr>
+ </tbody>
+
+</table>
