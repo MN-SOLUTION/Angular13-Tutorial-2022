@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-employee',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent  {
+
+  selectedFilter: string = 'All';
 
   employees:any[]=[
   {id:101,name:"Ali",salary:5000,gender:'Male'},
@@ -28,6 +30,9 @@ export class EmployeeComponent  {
     return this.employees.filter(emp=>emp.gender==='Female').length;
    }
 
-
+   onSelectionChangeDropDown(valuefromEmitter: string): void {
+    this.selectedFilter = valuefromEmitter; //we are setting the data that is coming from child component......
+}
+  
 
 }

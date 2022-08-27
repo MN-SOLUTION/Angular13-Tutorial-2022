@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-employee-filter',
@@ -6,7 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./employee-filter.component.css']
 })
 export class EmployeeFilterComponent {
- 
+  
+// Child Component or Nested Component
+dataToBePassed: string = 'All'; //to be passed into Parent compoenent.....
+   
   @Input()
   all:number=0;
   @Input()
@@ -14,5 +17,15 @@ export class EmployeeFilterComponent {
   @Input()
   female:number=0;
   
-  
+  //Event Emitter 
+  @Output()
+  valuefromEmitter:EventEmitter<string> =new EventEmitter<string>();
+
+
+  //PostData()
+   postData(){
+    this.valuefromEmitter.emit(this.dataToBePassed);
+   }
+
+
 }

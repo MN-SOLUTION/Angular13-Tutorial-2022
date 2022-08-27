@@ -1,8 +1,8 @@
 <div class="col-3">
-    <select class="form-select" >
-        <option>All ({{all}})</option>
-        <option>Male ({{male}})</option>
-        <option>Female ({{female}})</option>
+    <select [(ngModel)]="dataToBePassed" (change)="postData()" class="form-select"   >
+        <option value="All">All ({{all}})</option>
+        <option value="Male">Male ({{male}})</option>
+        <option value="Female">Female ({{female}})</option>
       </select>
-      
+     
 </div>

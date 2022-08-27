@@ -5,8 +5,15 @@
  [all]="getAllEmployeeCount()"
  [male]="getMaleEmployeeCount()"
  [female]="getFemaleEmployeeCount()"
+ (valuefromEmitter)="onSelectionChangeDropDown($event)"
  ></app-employee-filter>
 </div>
+
+
+
+
+
+
 
 <table class="table table-stripped">
 
@@ -20,14 +27,14 @@
     </tr>
  </thead>
  <tbody>
-    <tr *ngFor="let employee of employees" >
+ <ng-container *ngFor="let employee of employees">
+    <tr  *ngIf="selectedFilter==='All' || selectedFilter===employee.gender" >
       <td>{{employee.id}}</td>
       <td>{{employee.name}}</td>
       <td>{{employee.salary}}</td>
       <td>{{employee.gender}}</td>
-
-
     </tr>
+    </ng-container>
     <tr *ngIf="employees.length===0">
     <td colspan="4">
    <p>No Records Found!</p>
