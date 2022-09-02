@@ -1,0 +1,32 @@
+<h1>Welcome to Admin Component</h1>
+
+<div class="container">
+    <table class="table table-stripped">
+
+        <thead>
+           <tr>
+               <th> Id</th>
+               <th> Name</th>
+               <th> Gender</th>
+       
+           </tr>
+        </thead>
+        <tbody>
+      
+           <tr  *ngFor="let employee of employees" >
+             <td>{{employee.id}}</td>
+             <td>{{employee.name}}</td>
+            
+             <td>{{employee.gender}}</td>
+           </tr>
+          
+           <tr *ngIf="employees.length===0">
+           <td colspan="4">
+          <p>No Records Found!</p>
+           </td>
+           </tr>
+        </tbody>
+       
+       </table> 
+
+</div>
