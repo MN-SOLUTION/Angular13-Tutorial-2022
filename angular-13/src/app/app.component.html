@@ -1,8 +1,30 @@
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a [routerLink]="['/employee']" class="nav-link" >Employee</a>
+          </li>
+
+          <li class="nav-item">
+            <a [routerLink]="['/admin']" class="nav-link" >Admin</a>
+          </li>
+         
+        </ul>
+     
+      </div>
+    </div>
+  </nav>
+
+
+
 <div class="container mt-3">
+ <router-outlet>
 
- <h1>This is App Component</h1>
- 
- <hr/>
- <app-employee></app-employee>
-
+ </router-outlet>
 </div>

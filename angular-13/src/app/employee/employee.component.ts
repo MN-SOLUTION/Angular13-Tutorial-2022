@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
+import {EmployeeService} from './../employee.service';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.css'],
+  providers:[EmployeeService]
 })
 export class EmployeeComponent  {
 
   selectedFilter: string = 'All';
+  employees:any[];
 
-  employees:any[]=[
-  {id:101,name:"Ali",salary:5000,gender:'Male'},
-  {id:121,name:"Ahmed",salary:6000,gender:'Male'},
-  {id:142,name:"Sana",salary:7000,gender:'Female'},
-  {id:131,name:"Salman",salary:7000,gender:'Male'},
-  {id:151,name:"Fatima",salary:3000,gender:'Female'},
-  {id:151,name:"Fahad",salary:3000,gender:'Male'}
-  ];
+  constructor(private _employeeService:EmployeeService){
+   this.employees=_employeeService.getAllEmployee();
+  }
  
   getAllEmployeeCount():number{
    return this.employees.length;
