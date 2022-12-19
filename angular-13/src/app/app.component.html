@@ -14,6 +14,10 @@
           <li class="nav-item">
             <a [routerLink]="['/admin']" class="nav-link" >Admin</a>
           </li>
+          <li class="nav-item">
+            <a [routerLink]="['/post']" class="nav-link" >Post</a>
+          </li>
+          
          
         </ul>
      
@@ -21,10 +25,12 @@
     </div>
   </nav>
 
-
-
 <div class="container mt-3">
  <router-outlet>
 
  </router-outlet>
+
+ <ng-http-loader [backdrop]="false"
+ [backgroundColor]="'blue'"
+ ></ng-http-loader>
 </div>
